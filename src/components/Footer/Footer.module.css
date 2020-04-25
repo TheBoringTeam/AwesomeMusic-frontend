@@ -1,0 +1,22 @@
+.footer {
+    padding: 0.7rem 0;
+    background-color: #000000;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+.container span {
+    color: #ffffff;
+    margin: 0 5px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.container span:hover {
+    color: #1db954;
+}
