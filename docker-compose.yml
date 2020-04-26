@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  front-end:
+    container_name: front-end
+    build: ./
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - "80:80"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    stdin_open: true
