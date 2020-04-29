@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+.content {
+    padding-top: 80px;
+    background: url(./res/hero-lg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex: 1 0 auto;
+}
