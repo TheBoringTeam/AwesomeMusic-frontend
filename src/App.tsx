@@ -14,13 +14,15 @@ const App: React.FC = () => {
   return (
     <Router>
       <Nav />
-      <div className={styles.content}>
-        <Switch>
-          <Route path="/" exact component={MainPage} />
-          <Route path="/help" exact component={HelpPage} />
-          <Route path="/sign_up" exact component={SignUpPage} />
-          <Route path="/sign_in" exact component={SignInPage} />
-        </Switch>
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <Switch>
+            <Route path="/" exact component={MainPage} />
+            <Route path="/help" exact component={HelpPage} />
+            <Route path="/sign_up" exact component={SignUpPage} />
+            <Route path="/sign_in" exact component={SignInPage} />
+          </Switch>
+        </div>
       </div>
       <Footer />
     </Router>

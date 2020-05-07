@@ -8,15 +8,23 @@
 .container {
     margin: 0 auto;
     max-width: 1280px;
-}
-
-.container span {
     color: #ffffff;
-    margin: 0 5px;
-    font-weight: 500;
-    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
 }
 
-.container span:hover {
+.list {
+    list-style: none;
+    display: inline-flex;
+}
+
+
+.social span,
+.list li {
+    margin: 0.5rem 1rem;
+}
+
+.social span:hover,
+.list li:hover {
     color: #1db954;
 }
