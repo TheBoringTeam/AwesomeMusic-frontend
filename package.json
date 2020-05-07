@@ -38,6 +38,8 @@
     ]
   },
   "devDependencies": {
+    "react-cookie": "^4.0.3",
+    "@types/react-cookie": "git+ssh://git@github.com:S64/types-react-cookie.git#v2.1.2-2",
     "react-router-dom": "^5.1.2"
   }
 }
