@@ -1,52 +1,40 @@
 .header {
-    height: 80px;
     width: 100%;
-    padding: 0.7rem 0;
+    padding: 0.5rem 1rem;
     box-sizing: border-box;
-    position: fixed;
-
-    background-color: transparent;
-    transition: background-color 0.3s linear;
-}
-
-.header-bc {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #de6b48;
 }
 
 .container {
-    max-width: 1280px;
-    padding: 0 1rem;
-    margin: 0 auto;
+    padding: 0.3rem 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
-.nav {
+.logo {
+    color: #ffb400;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.list {
     list-style: none;
     display: inline-flex;
 }
 
+.route {
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
 .link {
     text-decoration: none;
-    color: #ffffff;
-    transition: color 0.3s linear;
+    color: #212529;
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in;
 }
 
 .link:hover {
-    color: #1db954;
-}
-
-.link-text {
-    line-height: 24px;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 1rem;
-}
-
-.logo {
-    display: inline-block;
-    background: url(../../res/spotify-logo-svgrepo-com.svg);
-    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
-    width: 45px;
-    height: 45px;
+    opacity: 1;
 }

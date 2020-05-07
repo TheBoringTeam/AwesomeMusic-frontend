@@ -13,10 +13,13 @@ body {
     font-size: 16px;
 }
 
-.content {
-    padding-top: 80px;
-    background: url(./res/hero-lg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+.container {
+    background-color: #fbf2c0;
+    width: 100%;
     flex: 1 0 auto;
+}
+
+.content {
+    max-width: 1280px;
+    margin: 0 auto;
 }

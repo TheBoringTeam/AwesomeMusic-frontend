@@ -1,44 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 import styles from "./Nav.module.css";
 
 const Nav: React.FC = () => {
-  const [offset, setOffset] = useState<number>(80);
-
-  useEffect(() => {
-    window.onscroll = () => {
-      setOffset(window.pageYOffset);
-    };
-  }, []);
-
   return (
-    <header
-      className={
-        offset > 80 ? `${styles.header} ${styles["header-bc"]}` : styles.header
-      }
-    >
+    <header className={styles.header}>
       <div className={styles.container}>
-        <NavLink to="/" className={styles.link}>
-          <span className={styles.logo}></span>
+        <NavLink to="/" className={styles.logo}>
+          The Boring Company
         </NavLink>
-        <ul className={styles.nav}>
-          <li className={styles["link-text"]}>
-            <NavLink to="/help" className={styles.link}>
-              Help
-            </NavLink>
-          </li>
-          <li className={styles["link-text"]}>
-            <NavLink to="/sign_up" className={styles.link}>
-              Sign Up
-            </NavLink>
-          </li>
-          <li className={styles["link-text"]}>
-            <NavLink to="/sign_in" className={styles.link}>
-              Sign In
-            </NavLink>
-          </li>
-        </ul>
+        <nav>
+          <ul className={styles.list}>
+            <li className={styles.route}>
+              <NavLink to="/sign_in" className={styles.link}>
+                Sign In
+              </NavLink>
+            </li>
+            <li className={styles.route}>
+              <NavLink to="/sign_up" className={styles.link}>
+                Sign Up
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   );
