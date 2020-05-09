@@ -18,7 +18,7 @@ const SignInPage: React.FC = () => {
           className={styles.input}
         />
         <span className={styles.route}>
-          <Link to="/" className={styles.link}>
+          <Link to="/forgot_password" className={styles.link}>
             Forgot password?
           </Link>
         </span>

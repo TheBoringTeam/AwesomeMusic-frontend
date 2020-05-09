@@ -11,6 +11,7 @@ import SignInPage from "./pages/SignInPage";
 
 import styles from "./App.module.css";
 import CookiesBanner from "./components/CookiesBanner/CookiesBanner";
+import ResetPassPage from "./pages/ResetPassPage";
 
 const App: React.FC = () => {
   const [banner, setBanner] = useState<boolean>(false);
@@ -39,6 +40,7 @@ const App: React.FC = () => {
             <Route path="/help" exact component={HelpPage} />
             <Route path="/sign_up" exact component={SignUpPage} />
             <Route path="/sign_in" exact component={SignInPage} />
+            <Route path="/forgot_password" exact component={ResetPassPage} />
           </Switch>
         </div>
       </div>
