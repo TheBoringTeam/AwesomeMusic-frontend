@@ -69,3 +69,7 @@ form {
 .create-account:hover {
     background-color: #086788;
 }
+
+.warning {
+    color: red;
+}
