@@ -8,7 +8,7 @@ services:
       - '.:/app'
       - '/app/node_modules'
     ports:
-      - "80:80"
+      - "8085:8085"
     environment:
       - CHOKIDAR_USEPOLLING=true
     stdin_open: true
