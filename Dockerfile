@@ -12,8 +12,8 @@ RUN npm install --silent
 COPY . ./
 
 
-EXPOSE 8085
+EXPOSE 3000
 
 # start app
 #RUN npm start
-CMD ["npm", "start", "-p", "8085"]
+CMD ["npm", "start"]
