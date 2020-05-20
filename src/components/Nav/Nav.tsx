@@ -54,7 +54,7 @@ const NavWithGuest: React.FC = () => {
 };
 
 const Nav: React.FC = () => {
-  const { auth, setAuth } = useUser()!;
+  const { auth } = useUser()!;
   return (
     <React.Fragment>{auth ? <NavWithUser /> : <NavWithGuest />}</React.Fragment>
   );

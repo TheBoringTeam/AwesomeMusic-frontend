@@ -1,10 +1,10 @@
-type APIResponse = {
+interface APIResponse {
   timestamp: string;
   status: number;
   error: string;
   message: string;
   path: string;
-};
+}
 
 async function getUser(username: string, password: string) {
   const user: string = JSON.stringify(
