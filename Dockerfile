@@ -12,7 +12,7 @@ RUN npm install --silent
 COPY . ./
 
 
-EXPOSE 3000
+EXPOSE 80
 
 # start app
 #RUN npm start
