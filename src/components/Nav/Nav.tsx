@@ -6,7 +6,7 @@ import styles from "./Nav.module.css";
 import { useUser } from "../../userContext";
 
 const NavWithUser: React.FC = () => {
-  const { auth, setAuth } = useUser()!;
+  const { setAuth } = useUser()!;
   return (
     <header className={styles.header}>
       <div className={styles.container}>

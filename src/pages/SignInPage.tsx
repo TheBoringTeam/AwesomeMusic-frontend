@@ -9,7 +9,7 @@ const SignInPage: React.FC<RouteComponentProps> = ({ history }) => {
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
-  const { auth, setAuth } = useUser()!;
+  const { setAuth } = useUser()!;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     switch (event.target.id) {
