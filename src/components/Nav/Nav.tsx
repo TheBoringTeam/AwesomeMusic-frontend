@@ -6,7 +6,7 @@ import styles from "./Nav.module.css";
 import { useUser } from "../../userContext";
 
 const NavWithUser: React.FC = () => {
-  const { auth, setAuth } = useUser()!;
+  const { setAuth } = useUser()!;
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -54,7 +54,7 @@ const NavWithGuest: React.FC = () => {
 };
 
 const Nav: React.FC = () => {
-  const { auth, setAuth } = useUser()!;
+  const { auth } = useUser()!;
   return (
     <React.Fragment>{auth ? <NavWithUser /> : <NavWithGuest />}</React.Fragment>
   );

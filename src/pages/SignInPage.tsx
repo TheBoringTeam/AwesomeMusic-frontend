@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Link, RouteComponentProps } from "react-router-dom";
 
 import styles from "./SignInPage.module.css";
-import getUser from "../functions/handleSigninSubmit";
+import getUser from "../services/api/handleSigninSubmit";
 import { useUser } from "../userContext";
 
 const SignInPage: React.FC<RouteComponentProps> = ({ history }) => {
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
-  const { auth, setAuth } = useUser()!;
+  const { setAuth } = useUser()!;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     switch (event.target.id) {
