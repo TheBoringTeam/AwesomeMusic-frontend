@@ -16,4 +16,4 @@ EXPOSE 80
 
 # start app
 #RUN npm start
-CMD ["npm", "start", "-p", "80"]
+CMD ["npm", "start"]
