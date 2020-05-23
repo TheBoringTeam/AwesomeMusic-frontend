@@ -6,9 +6,9 @@ interface APIResponse {
   path: string;
 }
 
-async function getUser(username: string, password: string) {
+async function getUser(login: string, password: string) {
   const user: string = JSON.stringify(
-    { username, password },
+    { login, password },
     null,
     "\t"
   ).replace(/": "/g, '" : "');
