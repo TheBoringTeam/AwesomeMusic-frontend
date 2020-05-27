@@ -4,23 +4,30 @@ import avatar from "./../../res/iddqd.jpg";
 
 import styles from "./Nav.module.css";
 import { useUser } from "../../userContext";
+import Cookies from "js-cookie";
 
 const NavWithUser: React.FC = () => {
-  const { setAuth } = useUser()!;
+  const { auth, setAuth } = useUser()!;
+
+  const handleLogOut = () => {
+    setAuth({ guest: true });
+    Cookies.remove("token");
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <NavLink to="/" className={styles.logo}>
-          The Boring Company
+          Awesome Music
         </NavLink>
         <nav>
           <ul className={styles.list}>
             <li className={styles.route}>
               <img src={avatar} alt="user avatar" className={styles.avatar} />
             </li>
-            <li className={styles.route}>I`m the Doom Guy, duh</li>
+            <li className={styles.route}>{auth.username}</li>
           </ul>
-          <button onClick={() => setAuth(false)}>Log out</button>
+          <button onClick={handleLogOut}>Log out</button>
         </nav>
       </div>
     </header>
@@ -32,7 +39,7 @@ const NavWithGuest: React.FC = () => {
     <header className={styles.header}>
       <div className={styles.container}>
         <NavLink to="/" className={styles.logo}>
-          The Boring Company
+          Awesome Music
         </NavLink>
         <nav>
           <ul className={styles.list}>
@@ -56,7 +63,9 @@ const NavWithGuest: React.FC = () => {
 const Nav: React.FC = () => {
   const { auth } = useUser()!;
   return (
-    <React.Fragment>{auth ? <NavWithUser /> : <NavWithGuest />}</React.Fragment>
+    <React.Fragment>
+      {auth.guest ? <NavWithGuest /> : <NavWithUser />}
+    </React.Fragment>
   );
 };
 
