@@ -49,10 +49,8 @@ const SignUpPage: React.FC = () => {
         })
         .catch((err) => setError(err));
       setBanner(true);
-      console.log("work");
     } else {
       setError("Check Fields");
-      console.log("fail");
     }
   };
   return (
@@ -89,7 +87,7 @@ const SignUpPage: React.FC = () => {
           id="pass1"
         />
         <input
-          type="passsword"
+          type="password"
           placeholder="Please repeat your password..."
           className={styles.input}
           value={passConfirm}

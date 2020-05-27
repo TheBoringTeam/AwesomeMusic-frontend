@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { CookiesProvider } from 'react-cookie';
+import { UserProvider } from "./userContext";
+
 
 
 ReactDOM.render(
-  <CookiesProvider >
     <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </CookiesProvider>,
+      <UserProvider>
+        <App />
+      </UserProvider>
+    </React.StrictMode>,
   document.getElementById('root')
 );

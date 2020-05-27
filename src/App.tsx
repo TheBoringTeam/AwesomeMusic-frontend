@@ -1,32 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useCookies } from "react-cookie";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import Nav from "./components/Nav/Nav";
 import Footer from "./components/Footer/Footer";
-import MainPage from "./pages/MainPage";
-import HelpPage from "./pages/HelpPage";
-import SignUpPage from "./pages/SignUpPage";
-import SignInPage from "./pages/SignInPage";
 
 import styles from "./App.module.css";
 import CookiesBanner from "./components/CookiesBanner/CookiesBanner";
-import ResetPassPage from "./pages/ResetPassPage";
-import { UserProvider } from "./userContext";
+import Cookies from "js-cookie";
+import { useUser } from "./userContext";
+import Routes from "./components/Routes/Routes";
+import checkUser from "./services/api/checkUser";
 
 const App: React.FC = () => {
-  const [banner, setBanner] = useState<boolean>(false);
-  const [cookies, setCookies] = useCookies(["name"]);
+  const [banner, setBanner] = useState<boolean>(true);
+  const { setAuth } = useUser()!;
 
   useEffect(() => {
-    setBanner(!cookies.name);
-  }, [cookies.name]);
+    if (Cookies.get("agreement")) {
+      setBanner(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    checkUser(setAuth);
+  }, [setAuth]);
 
   const handleCookies = () => {
-    setCookies("name", "Cookie data replacement", {
-      path: "/",
-      expires: new Date(9999, 11, 11),
+    Cookies.set("agreement", "i.am.agree", {
+      expires: 365,
     });
+    setBanner(false);
   };
 
   return (
@@ -34,20 +37,12 @@ const App: React.FC = () => {
       {banner ? (
         <CookiesBanner agree={handleCookies} close={setBanner} />
       ) : null}
-      <UserProvider>
-        <Nav />
-        <div className={styles.container}>
-          <div className={styles.content}>
-            <Switch>
-              <Route path="/" exact component={MainPage} />
-              <Route path="/help" exact component={HelpPage} />
-              <Route path="/sign_up" exact component={SignUpPage} />
-              <Route path="/sign_in" exact component={SignInPage} />
-              <Route path="/forgot_password" exact component={ResetPassPage} />
-            </Switch>
-          </div>
+      <Nav />
+      <div className={styles.container}>
+        <div className={styles.content}>
+          <Routes />
         </div>
-      </UserProvider>
+      </div>
       <Footer />
     </Router>
   );

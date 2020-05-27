@@ -73,3 +73,16 @@ form {
 .warning {
     color: red;
 }
+
+.label {
+    font-size: 18px;
+    margin-right: 5px;
+    color: #495057;
+}
+
+.field {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
