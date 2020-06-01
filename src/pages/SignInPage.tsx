@@ -34,8 +34,13 @@ const SignInPage: React.FC<RouteComponentProps> = ({ history }) => {
         return authMe(data.token);
       })
       .then((data) => {
-        setAuth({ guest: false, username: data.username, email: data.email });
-        history.push("/succsess");
+        setAuth({
+          guest: false,
+          username: data.username,
+          email: data.email,
+          loading: false,
+        });
+        history.push("/my_account");
       })
       .catch((err) => setError(err.message));
   }
