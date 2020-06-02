@@ -6,8 +6,9 @@ import HelpPage from "../../pages/HelpPage";
 import SignUpPage from "../../pages/SignUpPage";
 import SignInPage from "../../pages/SignInPage";
 import ResetPassPage from "../../pages/ResetPassPage";
-import ProtectedRoute from "./ProtectedRoute";
+import { UserRoute, GuestRoute } from "./ProtectedRoutes";
 import { useUser } from "../../userContext";
+import MyAccount from "../../pages/MyAccount";
 
 const Routes: React.FC = () => {
   const { auth } = useUser()!;
@@ -16,38 +17,41 @@ const Routes: React.FC = () => {
     <Switch>
       <Route path="/" exact component={MainPage} />
       <Route path="/help" exact component={HelpPage} />
-      <ProtectedRoute
+      <GuestRoute
         {...{
           isGuest: auth.guest,
-          isAllowed: auth.guest,
-          userRedirect: "/",
-          guestRedirect: "/sign_in",
+          redirectPath: "/",
         }}
         exact={true}
         path="/sign_up"
         component={SignUpPage}
       />
-      <ProtectedRoute
+      <GuestRoute
         {...{
           isGuest: auth.guest,
-          isAllowed: auth.guest,
-          userRedirect: "/",
-          guestRedirect: "/sign_in",
+          redirectPath: "/",
         }}
         exact={true}
         path="/sign_in"
         component={SignInPage}
       />
-      <ProtectedRoute
+      <GuestRoute
         {...{
           isGuest: auth.guest,
-          isAllowed: auth.guest,
-          userRedirect: "/",
-          guestRedirect: "/sign_in",
+          redirectPath: "/",
         }}
         exact={true}
         path="/forgot_password"
         component={ResetPassPage}
+      />
+      <UserRoute
+        {...{
+          isGuest: auth.guest,
+          redirectPath: "/sign_in",
+        }}
+        exact={true}
+        path="/my_account"
+        component={MyAccount}
       />
     </Switch>
   );

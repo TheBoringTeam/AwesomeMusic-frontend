@@ -10,8 +10,13 @@ import Cookies from "js-cookie";
 import { useUser } from "./userContext";
 import Routes from "./components/Routes/Routes";
 import checkUser from "./services/api/checkUser";
+import { UserProvider } from "./userContext";
 
-const App: React.FC = () => {
+type LoaderProps = {
+  loadApp(param: boolean): void;
+};
+
+const Content: React.FC = () => {
   const [banner, setBanner] = useState<boolean>(true);
   const { setAuth } = useUser()!;
 
@@ -48,4 +53,15 @@ const App: React.FC = () => {
   );
 };
 
+const Loader: React.FC = () => <div className={styles.loader}></div>;
+
+const App: React.FC = () => {
+  const { auth, setAuth } = useUser()!;
+
+  useEffect(() => {
+    checkUser(setAuth);
+  }, [setAuth]);
+
+  return <UserProvider>{auth.loading ? <Loader /> : <Content />}</UserProvider>;
+};
 export default App;

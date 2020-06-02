@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import avatar from "./../../res/iddqd.jpg";
 
 import styles from "./Nav.module.css";
@@ -10,7 +10,7 @@ const NavWithUser: React.FC = () => {
   const { auth, setAuth } = useUser()!;
 
   const handleLogOut = () => {
-    setAuth({ guest: true });
+    setAuth({ guest: true, loading: false });
     Cookies.remove("token");
   };
 
@@ -23,7 +23,9 @@ const NavWithUser: React.FC = () => {
         <nav>
           <ul className={styles.list}>
             <li className={styles.route}>
-              <img src={avatar} alt="user avatar" className={styles.avatar} />
+              <Link to="/my_account">
+                <img src={avatar} alt="user avatar" className={styles.avatar} />
+              </Link>
             </li>
             <li className={styles.route}>{auth.username}</li>
           </ul>

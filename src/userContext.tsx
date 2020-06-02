@@ -5,6 +5,7 @@ interface IUser {
   guest: boolean;
   username?: string | undefined;
   email?: string | undefined;
+  loading: boolean;
 }
 
 type Props = {
@@ -18,6 +19,7 @@ type UserContextType = {
 
 const defaultUser: IUser = {
   guest: true,
+  loading: true,
 };
 
 export const UserContext = createContext<UserContextType | undefined>(
@@ -25,10 +27,9 @@ export const UserContext = createContext<UserContextType | undefined>(
 );
 
 export const UserProvider: React.FC<Props> = ({ children }: Props) => {
-  const [auth, setAuth] = useState(defaultUser);
+  const [auth, setAuth] = useState<IUser>(defaultUser);
 
   useEffect(() => {
-    console.log("I an");
     checkUser(setAuth);
   }, []);
 
