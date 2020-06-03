@@ -9,6 +9,8 @@ import ResetPassPage from "../../pages/ResetPassPage";
 import { UserRoute, GuestRoute } from "./ProtectedRoutes";
 import { useUser } from "../../userContext";
 import MyAccount from "../../pages/MyAccount";
+import ChangePasswordPage from "../../pages/ChangePasswordPage";
+import PasswordEmailRedirect from "../../pages/PasswordEmailRedirect";
 
 const Routes: React.FC = () => {
   const { auth } = useUser()!;
@@ -52,6 +54,24 @@ const Routes: React.FC = () => {
         exact={true}
         path="/my_account"
         component={MyAccount}
+      />
+      <UserRoute
+        {...{
+          isGuest: auth.guest,
+          redirectPath: "/sign_in",
+        }}
+        exact={true}
+        path="/change_password"
+        component={ChangePasswordPage}
+      />
+      <GuestRoute
+        {...{
+          isGuest: auth.guest,
+          redirectPath: "/sign_in",
+        }}
+        exact={false}
+        path="/password_recovery"
+        component={PasswordEmailRedirect}
       />
     </Switch>
   );
