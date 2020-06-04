@@ -28,6 +28,9 @@ const NavWithUser: React.FC = () => {
               </Link>
             </li>
             <li className={styles.route}>{auth.username}</li>
+            <li>
+              <Link to="change_password">Settings</Link>
+            </li>
           </ul>
           <button onClick={handleLogOut}>Log out</button>
         </nav>
