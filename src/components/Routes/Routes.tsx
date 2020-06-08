@@ -2,14 +2,14 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import MainPage from "../../pages/MainPage";
-import HelpPage from "../../pages/HelpPage";
-import SignUpPage from "../../pages/SignUpPage";
-import SignInPage from "../../pages/SignInPage";
-import ResetPassPage from "../../pages/ResetPassPage";
+import PoliciesCookies from "../../pages/Policies/PoliciesCookies";
+import SignUpPage from "../../pages/SignUpPage/SignUpPage";
+import SignInPage from "../../pages/SignInPage/SignInPage";
+import ResetPassPage from "../../pages/ResetPassPage/ResetPassPage";
 import { UserRoute, GuestRoute } from "./ProtectedRoutes";
 import { useUser } from "../../userContext";
 import MyAccount from "../../pages/MyAccount";
-import ChangePasswordPage from "../../pages/ChangePasswordPage";
+import ChangePasswordPage from "../../pages/ChangePasswordPage/ChangePasswordPage";
 import PasswordEmailRedirect from "../../pages/PasswordEmailRedirect";
 
 const Routes: React.FC = () => {
@@ -18,14 +18,14 @@ const Routes: React.FC = () => {
   return (
     <Switch>
       <Route path="/" exact component={MainPage} />
-      <Route path="/help" exact component={HelpPage} />
+      <Route path="/policies-cookies" exact component={PoliciesCookies} />
       <GuestRoute
         {...{
           isGuest: auth.guest,
           redirectPath: "/",
         }}
         exact={true}
-        path="/sign_up"
+        path="/sign-up"
         component={SignUpPage}
       />
       <GuestRoute
@@ -34,7 +34,7 @@ const Routes: React.FC = () => {
           redirectPath: "/",
         }}
         exact={true}
-        path="/sign_in"
+        path="/sign-in"
         component={SignInPage}
       />
       <GuestRoute
@@ -49,28 +49,28 @@ const Routes: React.FC = () => {
       <UserRoute
         {...{
           isGuest: auth.guest,
-          redirectPath: "/sign_in",
+          redirectPath: "/sign-in",
         }}
         exact={true}
-        path="/my_account"
+        path="/my-account"
         component={MyAccount}
       />
       <UserRoute
         {...{
           isGuest: auth.guest,
-          redirectPath: "/sign_in",
+          redirectPath: "/sign-in",
         }}
         exact={true}
-        path="/change_password"
+        path="/change-password"
         component={ChangePasswordPage}
       />
       <GuestRoute
         {...{
           isGuest: auth.guest,
-          redirectPath: "/sign_in",
+          redirectPath: "/sign-in",
         }}
         exact={false}
-        path="/password_recovery"
+        path="/password-recovery"
         component={PasswordEmailRedirect}
       />
     </Switch>

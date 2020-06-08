@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState, FormEvent } from "react";
-import styles from "./ChangePasswordPage.module.css";
+import styles from "./ChangePasswordPage/ChangePasswordPage.module.css";
 import passwordValidation from "../services/validation/passwordValidation";
 
 const PasswordEmailRedirect: React.FC = () => {

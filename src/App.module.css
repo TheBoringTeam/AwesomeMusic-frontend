@@ -9,19 +9,25 @@ body {
 }
 
 body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+    background-image: linear-gradient(to top, #fcc5e4 0%, #fda34b 15%, #ff7882 35%, #c8699e 52%, #7046aa 71%, #0c1db8 87%, #020f75 100%);
 }
 
 .container {
-    background-color: #fbf2c0;
+    /*background-color: #f2f2f3;*/
     width: 100%;
     flex: 1 0 auto;
 }
 
 .content {
+    box-sizing: border-box;
     max-width: 1280px;
-    margin: 0 auto;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .loader {

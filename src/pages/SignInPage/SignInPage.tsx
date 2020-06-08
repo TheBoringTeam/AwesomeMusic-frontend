@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link, RouteComponentProps } from "react-router-dom";
 
 import styles from "./SignInPage.module.css";
-import getUser from "../services/api/handleSigninSubmit";
-import { useUser } from "../userContext";
+import getUser from "../../services/api/handleSigninSubmit";
+import { useUser } from "../../userContext";
 import Cookies from "js-cookie";
-import authMe from "./../services/api/authMe";
+import authMe from "../../services/api/authMe";
 
 const SignInPage: React.FC<RouteComponentProps> = ({ history }) => {
   const [login, setLogin] = useState<string>("");
@@ -40,7 +40,7 @@ const SignInPage: React.FC<RouteComponentProps> = ({ history }) => {
           email: data.email,
           loading: false,
         });
-        history.push("/my_account");
+        history.push("/my-account");
       })
       .catch((err) => setError(err.message));
   }
@@ -86,7 +86,7 @@ const SignInPage: React.FC<RouteComponentProps> = ({ history }) => {
         </button>
       </form>
       <div className={styles["create-account"]}>
-        <Link to="sign_up" className={styles.link}>
+        <Link to="sign-up" className={styles.link}>
           Create account
         </Link>
       </div>

@@ -1,6 +1,8 @@
 .content {
     box-sizing: border-box;
     padding: 2rem 1rem;
+    background-color: #ffffff;
+    border-radius: 6px;
 }
 
 .header {
@@ -63,4 +65,10 @@ form {
 .link {
     text-decoration: none;
     color: #1ac8ed;
+}
+
+.message {
+    margin: 1.5rem 0;
+    font-weight: 600;
+    color: red;
 }

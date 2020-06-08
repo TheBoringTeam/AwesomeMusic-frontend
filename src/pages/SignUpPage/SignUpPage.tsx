@@ -1,10 +1,10 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import styles from "./SignUpPage.module.css";
-import emailValidation from "../services/validation/emailValidation";
-import usernameValidation from "../services/validation/usernameValidation";
-import passwordValidation from "../services/validation/passwordValidation";
-import handleSignUp from "../services/api/HandleSignUp";
+import emailValidation from "../../services/validation/emailValidation";
+import usernameValidation from "../../services/validation/usernameValidation";
+import passwordValidation from "../../services/validation/passwordValidation";
+import handleSignUp from "../../services/api/HandleSignUp";
 
 const SignUpPage: React.FC = () => {
   const [username, setUsername] = useState<string>("");
@@ -50,7 +50,17 @@ const SignUpPage: React.FC = () => {
         .catch((err) => setError(err));
       setBanner(true);
     } else {
-      setError("Check Fields");
+      if (!usernameValidation(username)) {
+        setError("Invalid username format");
+      } else if (!passwordValidation(password)) {
+        setError("Invalid password format");
+      } else if (!emailValidation(email)) {
+        setError("Invalid email format");
+      } else if (password !== passConfirm) {
+        setError("Passwords doesn`t match");
+      } else if (!agreement) {
+        setError("You must agree with terms of use");
+      }
     }
   };
   return (
@@ -69,6 +79,7 @@ const SignUpPage: React.FC = () => {
           value={username}
           onChange={handleChange}
           id="username"
+          required
         />
         <input
           type="e-mail"
@@ -77,6 +88,7 @@ const SignUpPage: React.FC = () => {
           value={email}
           onChange={handleChange}
           id="email"
+          required
         />
         <input
           type="password"
@@ -85,6 +97,7 @@ const SignUpPage: React.FC = () => {
           value={password}
           onChange={handleChange}
           id="pass1"
+          required
         />
         <input
           type="password"
@@ -93,6 +106,7 @@ const SignUpPage: React.FC = () => {
           value={passConfirm}
           onChange={handleChange}
           id="pass2"
+          required
         />
         <div className={styles.checkbox}>
           <input
@@ -103,7 +117,7 @@ const SignUpPage: React.FC = () => {
           />
           <label htmlFor="agreement">I am agree to The terms</label>
         </div>
-        <p>{error}</p>
+        <p className={styles.message}>{error}</p>
         <button type="submit" className={styles.btn}>
           Submit
         </button>
@@ -119,7 +133,7 @@ const Banner: React.FC = () => {
       <p>
         Registration completed. Please, visit your e-mail for account
         conformation.{" "}
-        <Link to="/sign_in" className={styles.link}>
+        <Link to="/sign-in" className={styles.link}>
           Go to Sign in page
         </Link>
       </p>

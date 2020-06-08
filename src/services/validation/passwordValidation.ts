@@ -5,7 +5,6 @@ const passwordValidation = (password: string): boolean => {
   const numbers: boolean = /[0-9]/.test(password);
   /*const specialChar: boolean = /[@%+/`!#$^?:,()}\]~\-._]/.test(password);*/
   const noSpaces: boolean = /^\S+$/.test(password);
-  console.log(validLength, lowerCase, upperCase, numbers, noSpaces);
   return validLength && lowerCase && upperCase && numbers && noSpaces;
 };
 

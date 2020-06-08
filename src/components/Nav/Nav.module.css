@@ -2,18 +2,26 @@
     width: 100%;
     padding: 0.5rem 1rem;
     box-sizing: border-box;
-    background-color: #de6b48;
+    background-color: transparent;
+}
+
+.nav {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .container {
     padding: 0.3rem 1rem;
+    max-width: 1280px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    color: #ffb400;
+    color: #ffffff;
     text-decoration: none;
     font-size: 20px;
 }
@@ -21,6 +29,8 @@
 .list {
     list-style: none;
     display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .route {
@@ -30,8 +40,8 @@
 
 .link {
     text-decoration: none;
-    color: #212529;
-    opacity: 0.6;
+    color: #ffffff;
+    opacity: 0.85;
     transition: opacity 0.3s ease-in;
 }
 
@@ -42,6 +52,39 @@
 .avatar {
     display: inline-block;
     border-radius: 50%;
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
+}
+
+.username {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.btn {
+    box-sizing: border-box;
+    color: #ffffff;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    padding: 0.4rem 0.75rem;
+    cursor: pointer;
+    opacity: 0.95;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+.settings {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    background: url(./../../res/settings.svg);
+    filter: invert(100%) sepia(0%) saturate(7479%) hue-rotate(209deg) brightness(112%) contrast(100%);
+}
+
+.settings-route {
+    height: 30px;
+    width: 30px;
 }
