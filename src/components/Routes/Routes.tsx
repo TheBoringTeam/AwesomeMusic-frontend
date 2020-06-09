@@ -11,6 +11,7 @@ import { useUser } from "../../userContext";
 import MyAccount from "../../pages/MyAccount";
 import ChangePasswordPage from "../../pages/ChangePasswordPage/ChangePasswordPage";
 import PasswordEmailRedirect from "../../pages/PasswordEmailRedirect";
+import RegistrationConfirmed from "../../pages/RegistrationConfirmed";
 
 const Routes: React.FC = () => {
   const { auth } = useUser()!;
@@ -19,6 +20,7 @@ const Routes: React.FC = () => {
     <Switch>
       <Route path="/" exact component={MainPage} />
       <Route path="/policies-cookies" exact component={PoliciesCookies} />
+      <Route path="/registration-confirmed" component={RegistrationConfirmed} />
       <GuestRoute
         {...{
           isGuest: auth.guest,

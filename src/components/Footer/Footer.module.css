@@ -51,7 +51,6 @@
     width: 30px;
     height: 25px;
     filter: invert(99%) sepia(0%) saturate(2%) hue-rotate(38deg) brightness(103%) contrast(101%);
-    transition: filter 0.2s ease-in;
 }
 
 .email {
