@@ -24,9 +24,6 @@ const Content: React.FC = () => {
     if (Cookies.get("agreement")) {
       setBanner(false);
     }
-  }, []);
-
-  useEffect(() => {
     checkUser(setAuth);
   }, [setAuth]);
 

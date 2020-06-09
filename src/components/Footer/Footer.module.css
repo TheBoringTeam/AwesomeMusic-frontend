@@ -11,6 +11,7 @@
     color: #ffffff;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .list {
@@ -27,4 +28,41 @@
 .social span:hover,
 .list li:hover {
     color: #1db954;
+}
+
+.link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease-in;
+}
+
+.link:hover {
+    color: #ff7882;
+}
+
+.icon {
+    width: 30px;
+    height: 25px;
+}
+
+.email,
+.github {
+    display: inline-block;
+    width: 30px;
+    height: 25px;
+    filter: invert(99%) sepia(0%) saturate(2%) hue-rotate(38deg) brightness(103%) contrast(101%);
+    transition: filter 0.2s ease-in;
+}
+
+.email {
+    background: url(../../res/email.svg) no-repeat;
+}
+
+.email:hover,
+.github:hover {
+    filter: invert(55%) sepia(63%) saturate(537%) hue-rotate(308deg) brightness(100%) contrast(107%);
+}
+
+.github {
+    background: url(../../res/github.svg) no-repeat;
 }

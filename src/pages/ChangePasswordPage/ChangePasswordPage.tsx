@@ -1,8 +1,8 @@
 import React, { ChangeEvent, useState, FormEvent } from "react";
 import styles from "./ChangePasswordPage.module.css";
 import Cookies from "js-cookie";
-import changePassword from "../services/api/changePassword";
-import passwordValidation from "../services/validation/passwordValidation";
+import changePassword from "../../services/api/changePassword";
+import passwordValidation from "../../services/validation/passwordValidation";
 
 const ChangePasswordPage: React.FC = () => {
   const [oldPass, setOldPass] = useState<string>("");

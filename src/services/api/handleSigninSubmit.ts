@@ -7,11 +7,10 @@ interface APIResponse {
 }
 
 async function getUser(login: string, password: string) {
-  const user: string = JSON.stringify(
-    { login, password },
-    null,
-    "\t"
-  ).replace(/": "/g, '" : "');
+  const user: string = JSON.stringify({ login, password }, null, "\t").replace(
+    /": "/g,
+    '" : "'
+  );
   const data: Response = await fetch(
     "http://34.90.124.7:8082/api/user/sign-in",
     {

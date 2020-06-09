@@ -15,8 +15,10 @@ const changePassword = async (
     "Content-Type": "application/json",
   });
 
+  console.log(body, token);
+
   const response: Response = await fetch(
-    "http://34.90.124.7:8082/api/user/changePassword",
+    "http://34.90.124.7:8082/api/user/change-password",
     {
       method: "PUT",
       headers: myHeader,

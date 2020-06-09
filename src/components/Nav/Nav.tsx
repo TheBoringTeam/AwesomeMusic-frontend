@@ -20,19 +20,23 @@ const NavWithUser: React.FC = () => {
         <NavLink to="/" className={styles.logo}>
           Awesome Music
         </NavLink>
-        <nav>
+        <nav className={styles.nav}>
           <ul className={styles.list}>
+            <li className={styles.username}>{auth.username}</li>
             <li className={styles.route}>
-              <Link to="/my_account">
+              <Link to="/my-account">
                 <img src={avatar} alt="user avatar" className={styles.avatar} />
               </Link>
             </li>
-            <li className={styles.route}>{auth.username}</li>
             <li>
-              <Link to="change_password">Settings</Link>
+              <Link to="change-password" className={styles["settings-route"]}>
+                <span className={styles.settings}></span>
+              </Link>
             </li>
           </ul>
-          <button onClick={handleLogOut}>Log out</button>
+          <button onClick={handleLogOut} className={styles.btn}>
+            Log out
+          </button>
         </nav>
       </div>
     </header>
@@ -49,12 +53,12 @@ const NavWithGuest: React.FC = () => {
         <nav>
           <ul className={styles.list}>
             <li className={styles.route}>
-              <NavLink to="/sign_in" className={styles.link}>
+              <NavLink to="/sign-in" className={styles.link}>
                 Sign In
               </NavLink>
             </li>
             <li className={styles.route}>
-              <NavLink to="/sign_up" className={styles.link}>
+              <NavLink to="/sign-up" className={styles.link}>
                 Sign Up
               </NavLink>
             </li>
