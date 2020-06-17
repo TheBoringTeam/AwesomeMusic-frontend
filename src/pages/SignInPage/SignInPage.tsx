@@ -53,7 +53,7 @@ const SignInPage: React.FC<RouteComponentProps> = ({ history }) => {
           </label>
           <input
             type="text"
-            placeholder="Enter your email"
+            placeholder="Enter your login"
             className={styles.input}
             id="login"
             value={login}
