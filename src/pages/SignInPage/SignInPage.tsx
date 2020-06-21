@@ -28,6 +28,7 @@ const SignInPage: React.FC<RouteComponentProps> = ({ history }) => {
   };
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setError(null);
     getUser(login, password)
       .then((data) => {
         Cookies.set("token", data.token, { path: "/" });

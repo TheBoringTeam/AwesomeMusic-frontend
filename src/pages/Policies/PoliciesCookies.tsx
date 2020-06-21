@@ -3,7 +3,7 @@ import styles from "./Policies.module.css";
 
 const PoliciesCookies: React.FC = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <h1 className={styles.section}>
         Соглашение об использовании файлов cookie
       </h1>

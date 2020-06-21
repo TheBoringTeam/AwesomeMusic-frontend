@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         <div className={styles.links}>
           <ul className={styles.list}>
             <li>
-              <Link to="#" className={styles.link}>
+              <Link to="/agreements" className={styles.link}>
                 Agreements
               </Link>
             </li>

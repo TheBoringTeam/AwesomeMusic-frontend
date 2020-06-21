@@ -7,3 +7,11 @@
 .header {
     margin-bottom: 1rem;
 }
+
+.container {
+    box-sizing: border-box;
+    padding: 2rem 1rem;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
