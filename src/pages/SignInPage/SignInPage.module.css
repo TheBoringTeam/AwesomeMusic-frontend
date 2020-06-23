@@ -1,6 +1,9 @@
 .content {
     box-sizing: border-box;
     padding: 2rem 1rem;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 form {
@@ -46,12 +49,13 @@ form {
 }
 
 .create-account {
+    width: 90%;
     text-align: center;
     box-sizing: border-box;
     padding: 0.5rem 1rem;
     border: 2px solid #0c1db8;
     border-radius: 35px;
-    margin: 50px 0;
+    margin: 50px auto;
     background: transparent;
     cursor: pointer;
     transition-duration: 0.3s;

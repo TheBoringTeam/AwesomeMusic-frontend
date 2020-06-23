@@ -25,9 +25,6 @@ body {
     max-width: 1280px;
     margin: 2rem auto;
     padding: 1rem 2rem;
-    background-color: #ffffff;
-    border-radius: 6px;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .loader {
