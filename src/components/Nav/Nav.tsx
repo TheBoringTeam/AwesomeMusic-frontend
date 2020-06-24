@@ -29,7 +29,7 @@ const NavWithUser: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link to="change-password" className={styles["settings-route"]}>
+              <Link to="/user-settings" className={styles["settings-route"]}>
                 <span className={styles.settings}></span>
               </Link>
             </li>

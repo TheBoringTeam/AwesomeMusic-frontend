@@ -1,8 +1,8 @@
 import React, { ChangeEvent, useState, FormEvent } from "react";
-import styles from "./ChangePasswordPage.module.css";
 import Cookies from "js-cookie";
-import changePassword from "../../services/api/changePassword";
-import passwordValidation from "../../services/validation/passwordValidation";
+import changePassword from "../../../services/api/changePassword";
+import passwordValidation from "../../../services/validation/passwordValidation";
+import styles from "./ChangePasswordPage.module.css";
 
 const ChangePasswordPage: React.FC = () => {
   const [oldPass, setOldPass] = useState<string>("");
@@ -48,7 +48,7 @@ const ChangePasswordPage: React.FC = () => {
     }
   };
   return (
-    <div>
+    <div className={styles.wrapper}>
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
           className={styles.input}

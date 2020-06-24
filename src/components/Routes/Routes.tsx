@@ -9,11 +9,11 @@ import ResetPassPage from "../../pages/ResetPassPage/ResetPassPage";
 import { UserRoute, GuestRoute } from "./ProtectedRoutes";
 import { useUser } from "../../userContext";
 import UserAccount from "../../pages/UserAccount/UserAccount";
-import ChangePasswordPage from "../../pages/ChangePasswordPage/ChangePasswordPage";
 import PasswordEmailRedirect from "../../pages/PasswordEmailRedirect";
 import RegistrationConfirmed from "../../pages/RegistrationConfirmed";
 import Agreements from "../../pages/Policies/Agreements";
 import MailRedirectFail from "../../pages/MailRedirectFail";
+import UserSettings from "../../pages/UserSettings/UserSettings";
 
 const Routes: React.FC = () => {
   const { auth } = useUser()!;
@@ -49,7 +49,7 @@ const Routes: React.FC = () => {
           redirectPath: "/",
         }}
         exact={true}
-        path="/forgot_password"
+        path="/forgot-password"
         component={ResetPassPage}
       />
       <UserRoute
@@ -66,9 +66,9 @@ const Routes: React.FC = () => {
           isGuest: auth.guest,
           redirectPath: "/sign-in",
         }}
-        exact={true}
-        path="/change-password"
-        component={ChangePasswordPage}
+        exact={false}
+        path="/user-settings"
+        component={UserSettings}
       />
       <GuestRoute
         {...{

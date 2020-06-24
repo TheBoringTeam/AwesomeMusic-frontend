@@ -78,7 +78,7 @@ const SignInPage: React.FC<RouteComponentProps> = ({ history }) => {
         </div>
         <p className={styles.warning}>{error}</p>
         <span className={styles.route}>
-          <Link to="/forgot_password" className={styles.link}>
+          <Link to="/forgot-password" className={styles.link}>
             Forgot password?
           </Link>
         </span>
