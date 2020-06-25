@@ -3,7 +3,6 @@ const resetPassword = async (email: string) => {
     /": "/g,
     '" : "'
   );
-  console.log(body);
   const response: Response = await fetch(
     "http://34.90.124.7:8082/api/user/reset-password",
     {
