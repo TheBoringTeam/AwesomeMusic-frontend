@@ -40,8 +40,6 @@
 
 .link {
     text-decoration: none;
-    color: #495057;
-    transition: color 0.3s ease-in;
 }
 
 .link:hover {
@@ -54,6 +52,7 @@
     box-sizing: border-box;
     padding: 0.5rem 1rem;
     border: 2px solid #0c1db8;
+    color: #0c1db8;
     border-radius: 35px;
     margin: 50px auto;
     background: transparent;
@@ -62,17 +61,12 @@
     transition-timing-function: ease-in;
 }
 
-.create-account .link {
-    color: #0c1db8;
-}
-
-.create-account:hover .link {
-    color: #ffffff;
-}
 
 .create-account:hover {
+    color: #ffffff;
     background-color: #0c1db8;
 }
+
 
 .warning {
     color: red;

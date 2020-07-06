@@ -14,8 +14,11 @@ const resetPassword = async (email: string) => {
       body: body,
     }
   );
-  const data = await response.json();
-  return data;
+  if (response.status === 200) {
+    return await response.json();
+  } else {
+    throw await response.json();
+  }
 };
 
 export default resetPassword;

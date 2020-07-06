@@ -26,7 +26,7 @@ async function getUser(login: string, password: string) {
     return await data.json();
   } else {
     const error: APIResponse = await data.json();
-    throw Error(`Error! ${error.message}`);
+    throw error;
   }
 }
 

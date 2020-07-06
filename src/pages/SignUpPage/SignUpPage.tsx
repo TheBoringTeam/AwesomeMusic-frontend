@@ -36,6 +36,7 @@ const SignUpPage: React.FC = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setError(null);
     if (
       usernameValidation(username) &&
       passwordValidation(password) &&
@@ -47,8 +48,13 @@ const SignUpPage: React.FC = () => {
         .then((data) => {
           setBanner(true);
         })
-        .catch((err) => setError(err));
-      setBanner(true);
+        .catch((err) => {
+          if (err.status === 400) {
+            setError(err.message);
+          } else {
+            setError("Sorry, something went wrong.");
+          }
+        });
     } else {
       if (!usernameValidation(username)) {
         setError("Invalid username format");

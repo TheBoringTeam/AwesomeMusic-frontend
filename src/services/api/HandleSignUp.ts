@@ -5,7 +5,7 @@ async function handleSignUp(username: string, password: string, email: string) {
     email,
     is_collective: false,
   }).replace(/": "/g, '" : "');
-  const data: Response = await fetch(
+  const response: Response = await fetch(
     "http://34.90.124.7:8082/api/user/registration",
     {
       method: "POST",
@@ -16,7 +16,11 @@ async function handleSignUp(username: string, password: string, email: string) {
       body: user,
     }
   );
-  console.log(data);
+  if (response.status === 200) {
+    return await response.json();
+  } else {
+    throw response.json();
+  }
 }
 
 export default handleSignUp;

@@ -1,6 +1,24 @@
-.form {
+.content {
+    box-sizing: border-box;
+    padding: 2rem 1rem;
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.header {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.form {
+    width: 400px;
+    margin: 0 auto;
+}
+
 
 .input {
     font-size: inherit;
@@ -15,6 +33,11 @@
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
+.input:focus,
+.btn:focus {
+    outline: none;
+}
+
 .btn {
     background-color: #086788;
     color: #ffffff;
@@ -22,8 +45,11 @@
     border-radius: 4px;
     padding: 0.4rem 0.75rem;
     cursor: pointer;
+    width: 80px;
+    box-sizing: border-box;
 }
 
 .message {
     color: royalblue;
+    text-align: center;
 }
