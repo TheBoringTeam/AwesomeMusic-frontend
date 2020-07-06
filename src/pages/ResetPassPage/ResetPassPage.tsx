@@ -18,28 +18,29 @@ const ResetPassPage: React.FC = () => {
     if (emailValidation(email)) {
       resetPassword(email)
         .then((data) => {
-          if (data.status !== 200) {
-            throw Error(data.message);
-          } else {
-            setMessage("please check your email");
-          }
+          setMessage("Check your email for confarmation.");
         })
-        .catch((err) => setMessage(err.message));
+        .catch((err) =>
+          err.status === 400
+            ? setMessage("Wrong email")
+            : setMessage("Sorry, something went wrong")
+        );
     } else {
       setMessage("Please, input valid email");
     }
   };
   return (
-    <div>
-      <h2>Reset password</h2>
+    <div className={styles.content}>
+      <h2 className={styles.header}>Reset password</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
-          type="e-mail"
+          type="email"
           className={styles.input}
           required
           onChange={handleChange}
           value={email}
           placeholder="Please enter your email..."
+          name="email"
         />
         <button type="submit" className={styles.btn}>
           Continue

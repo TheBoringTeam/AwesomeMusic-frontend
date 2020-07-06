@@ -43,7 +43,13 @@ const SignInPage: React.FC<RouteComponentProps> = ({ history }) => {
         });
         history.push("/my-account");
       })
-      .catch((err) => setError(err.message));
+      .catch((err) => {
+        if (err.status === 403) {
+          setError("Invalid login or password");
+        } else {
+          setError("Sorry, something went wrong.");
+        }
+      });
   }
   return (
     <div className={styles.content}>
@@ -86,11 +92,9 @@ const SignInPage: React.FC<RouteComponentProps> = ({ history }) => {
           Sign in
         </button>
       </form>
-      <div className={styles["create-account"]}>
-        <Link to="sign-up" className={styles.link}>
-          Create account
-        </Link>
-      </div>
+      <Link to="sign-up" className={styles.link}>
+        <p className={styles["create-account"]}>Create account</p>
+      </Link>
     </div>
   );
 };

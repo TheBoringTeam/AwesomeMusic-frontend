@@ -4,8 +4,9 @@ import styles from "./Policies.module.css";
 const Agreements: React.FC = () => {
   return (
     <div className={styles.container}>
-      <h2>Agreements</h2>
-      <p>List of agreements</p>
+      <h1 className={styles.section}>Agreements</h1>
+      <h3 className={styles.header}>Agreements list</h3>
+      <p>Text</p>
     </div>
   );
 };
