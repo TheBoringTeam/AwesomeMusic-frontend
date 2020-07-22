@@ -37,7 +37,7 @@
 }
 
 .link:hover {
-    color: #ff7882;
+    color: #00c6fb;
 }
 
 .icon {
@@ -59,7 +59,7 @@
 
 .email:hover,
 .github:hover {
-    filter: invert(55%) sepia(63%) saturate(537%) hue-rotate(308deg) brightness(100%) contrast(107%);
+    filter: invert(70%) sepia(22%) saturate(6729%) hue-rotate(150deg) brightness(95%) contrast(108%);
 }
 
 .github {
