@@ -16,7 +16,7 @@ async function handleSignUp(username: string, password: string, email: string) {
       body: user,
     }
   );
-  if (response.status === 200) {
+  if (response.status === 201) {
     return await response.json();
   } else {
     throw response.json();
