@@ -49,6 +49,7 @@ const SignUpPage: React.FC = () => {
           setBanner(true);
         })
         .catch((err) => {
+          console.log(err);
           if (err.status === 400) {
             setError(err.message);
           } else {

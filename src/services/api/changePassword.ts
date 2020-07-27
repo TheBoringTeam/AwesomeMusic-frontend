@@ -15,8 +15,6 @@ const changePassword = async (
     "Content-Type": "application/json",
   });
 
-  console.log(body, token);
-
   const response: Response = await fetch(
     "http://34.90.124.7:8082/api/user/change-password",
     {
@@ -25,8 +23,12 @@ const changePassword = async (
       body: body,
     }
   );
-  const data = await response.json();
-  return data;
+
+  if (response.status === 200) {
+    return await response.json();
+  } else {
+    throw await response.json();
+  }
 };
 
 export default changePassword;

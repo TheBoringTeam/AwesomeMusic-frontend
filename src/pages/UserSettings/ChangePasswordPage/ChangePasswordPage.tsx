@@ -35,8 +35,10 @@ const ChangePasswordPage: React.FC = () => {
       oldPass !== newPass
     ) {
       changePassword(oldPass, newPass, Cookies.get("token")!)
-        .then((data) => console.log(data))
-        .catch((err) => console.log("this is error! ", err));
+        .then((data) => setMessage("Password has been changed"))
+        .catch((err) =>
+          setMessage(err.status === 400 ? err.message : "Something went wrong")
+        );
     } else {
       if (oldPass === newPass) {
         setMessage("New password must be different from old");
@@ -77,11 +79,11 @@ const ChangePasswordPage: React.FC = () => {
           value={repeatPass}
           required
         />
+        <p className={styles.message}>{message}</p>
         <button type="submit" className={styles.btn}>
           Change Password
         </button>
       </form>
-      <p>{message}</p>
     </div>
   );
 };
