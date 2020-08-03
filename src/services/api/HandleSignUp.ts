@@ -19,7 +19,7 @@ async function handleSignUp(username: string, password: string, email: string) {
   if (response.status === 201) {
     return await response.json();
   } else {
-    throw response.json();
+    throw await response.json();
   }
 }
 

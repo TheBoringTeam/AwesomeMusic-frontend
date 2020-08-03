@@ -38,6 +38,11 @@ const ManageUserInfo: React.FC = () => {
     setInfo((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.currentTarget;
+    setInfo((prev) => ({ ...prev, gender: value }));
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setMessage(null);
@@ -50,43 +55,68 @@ const ManageUserInfo: React.FC = () => {
     <div className={styles.wrapper}>
       <h2>Change your personal info</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <input
-          type="text"
-          placeholder="name"
-          value={userInfo.name}
-          name="name"
-          onChange={handleInputChange}
-          className={styles.input}
-        />
-        <textarea
-          placeholder="Biography"
-          value={userInfo.biography}
-          name="biography"
-          onChange={handleTextChange}
-          className={styles.input}
-        />
-        <input
-          type="date"
-          value={userInfo.birthday}
-          name="birthday"
-          onChange={handleInputChange}
-          className={styles.input}
-        />
-        <input
-          type="date"
-          value={userInfo.deathday}
-          name="deathday"
-          onChange={handleInputChange}
-          className={styles.input}
-        />
-        <input
-          type="text"
-          placeholder="gender"
-          value={userInfo.gender}
-          name="gender"
-          onChange={handleInputChange}
-          className={styles.input}
-        />
+        <div>
+          <label>First name</label>
+          <input
+            type="text"
+            placeholder="name"
+            value={userInfo.name}
+            name="name"
+            onChange={handleInputChange}
+            className={styles.input}
+          />
+        </div>
+        <div>
+          <label>Last name</label>
+          <input
+            type="text"
+            placeholder="surname"
+            value={userInfo.name}
+            name="surname"
+            onChange={handleInputChange}
+            className={styles.input}
+          />
+        </div>
+        <div>
+          <label>Birthday</label>
+          <input
+            type="date"
+            value={userInfo.birthday}
+            name="birthday"
+            onChange={handleInputChange}
+            className={styles.input}
+          />
+        </div>
+        <div>
+          <label>Death day</label>
+          <input
+            type="date"
+            value={userInfo.deathday}
+            name="deathday"
+            onChange={handleInputChange}
+            className={styles.input}
+          />
+        </div>
+        <div>
+          <label htmlFor="male">Male</label>
+          <input
+            type="radio"
+            onChange={handleRadioChange}
+            className={styles.input}
+            checked={userInfo.gender === "male"}
+            value="male"
+            id="gender1"
+          />
+          <label htmlFor="female">Female</label>
+          <input
+            type="radio"
+            onChange={handleRadioChange}
+            className={styles.input}
+            checked={userInfo.gender === "female"}
+            value="female"
+            id="gender2"
+          />
+        </div>
         <input
           type="text"
           placeholder="education"
@@ -111,6 +141,16 @@ const ManageUserInfo: React.FC = () => {
           onChange={handleInputChange}
           className={styles.input}
         />
+        <div>
+          <label>About yourself</label>
+          <textarea
+            placeholder="Biography"
+            value={userInfo.biography}
+            name="biography"
+            onChange={handleTextChange}
+            className={styles.input}
+          />
+        </div>
         <button type="submit" className={styles.btn}>
           SUBMIT
         </button>
